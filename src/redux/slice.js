@@ -3,20 +3,55 @@ import { createSlice } from "@reduxjs/toolkit";
 export const counterSlice = createSlice({
     name: 'counter',
     initialState: {
-        count: 0,
-        count2: 10
+        total: 11,
+        items: [
+            {
+                key: 1,
+                name: "Food",
+                quantity: 4
+            },
+            {
+                key: 2,
+                name: "Cold Drink",
+                quantity: 2
+            },
+            {
+                key: 3,
+                name: "Maggi",
+                quantity: 5
+            }
+        ]
     },
     reducers: {
-        increment: state => {
-            state.count = state.count + 1
+        increment: (state, action) => {
+            state.items[action.payload.key - 1].quantity += 1;
+            state.total += 1;
         },
-        decrement: state => {
-            state.count = state.count < 1 ? 0 : state.count - 1
+        decrement: (state, action) => {
+            if (action.payload.quantity) {
+                state.items[action.payload.key - 1].quantity -= 1;
+            }
+            state.total -= 1;
+        },
+        addItem: (state, action) => {
+            if (state.items.some(item => item.name === action.payload)) {
+                const index = state.items.findIndex(item => item.name === action.payload);
+                state.items[index].quantity += 1;
+            } else {
+                state.items.push({
+                    key: state.items.length + 1,
+                    name: action.payload,
+                    quantity: 1
+                })
+            }
+            state.total += 1;
+        },
+        clearCart: state => {
+            state.items.length = 0;
+            state.total = 0;
         }
     }
 })
 
-console.log("slice", counterSlice);
-
-export const { increment, decrement } = counterSlice.actions;
+export const { increment, decrement, addItem, clearCart } = counterSlice.actions;
 export default counterSlice.reducer;
