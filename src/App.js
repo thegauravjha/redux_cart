@@ -1,6 +1,8 @@
 import './App.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { increment, decrement } from './redux/slice';
+import Header from './Header';
+import Cart from './Cart';
 
 function App() {
   const count = useSelector(state => state.counter.count)
@@ -12,13 +14,8 @@ function App() {
         <button type="button" onClick={() => { disptach(increment()) }}>Increment</button>
         <button type="button" onClick={() => { disptach(decrement()) }}>Decrement</button>
       </div> */}
-      <div className="header">
-        <div className="title">MyCart</div>
-        <div className="total-item"></div>
-      </div>
-      <div className="cart-container">
-
-      </div>
+      <Header />
+      <Cart />
     </div>
   );
 }
