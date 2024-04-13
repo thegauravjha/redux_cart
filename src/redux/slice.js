@@ -34,8 +34,8 @@ export const counterSlice = createSlice({
             state.total -= 1;
         },
         addItem: (state, action) => {
-            if (state.items.some(item => item.name === action.payload)) {
-                const index = state.items.findIndex(item => item.name === action.payload);
+            if (state.items.some(item => item.name.toLocaleLowerCase() === action.payload.toLocaleLowerCase())) {
+                const index = state.items.findIndex(item => item.name.toLocaleLowerCase() === action.payload.toLocaleLowerCase());
                 state.items[index].quantity += 1;
             } else {
                 state.items.push({
