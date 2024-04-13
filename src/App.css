@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   font-family: "Montserrat", sans-serif;
+  background-color: var(--cover);
 }
 
 :root {
@@ -13,6 +14,7 @@
   --warning: #e76f51;
 }
 
+/* HEADER */
 .header {
   background-color: var(--main-color);
   display: flex;
@@ -22,17 +24,28 @@
 }
 
 .header > .title {
+  background-color: var(--main-color);
   color: var(--text-color2);
   font-size: 30px;
   font-weight: 700;
 }
 
 .header > .total-cart {
+  background-color: var(--main-color);
   font-size: 24px;
   padding-right: 100px;
   color: var(--text-color);
 }
 
+.header > .total-cart > .total-cart-icon {
+  background-color: var(--main-color);
+}
+
 .header > .total-cart > .total-cart-item {
+  background-color: var(--main-color);
   margin-left: 10px;
+}
+
+/* Cart */
+.cart-container {
 }

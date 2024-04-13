@@ -7,7 +7,7 @@ const Header = () => {
         <div className="header">
             <div className="title">Wishlist</div>
             <div className="total-cart">
-                <FontAwesomeIcon icon={faCartShopping} />
+                <FontAwesomeIcon className='total-cart-icon' icon={faCartShopping} />
                 <span className='total-cart-item'>4</span>
             </div>
         </div>
