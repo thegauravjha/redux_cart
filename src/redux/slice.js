@@ -7,17 +7,17 @@ export const counterSlice = createSlice({
         items: [
             {
                 key: 1,
-                name: "Food",
-                quantity: 4
+                name: "Camera",
+                quantity: 1
             },
             {
                 key: 2,
-                name: "Cold Drink",
+                name: "Tripod",
                 quantity: 2
             },
             {
                 key: 3,
-                name: "Maggi",
+                name: "Lens Filters",
                 quantity: 5
             }
         ]
